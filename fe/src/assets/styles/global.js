@@ -8,8 +8,12 @@ export default createGlobalStyle`
     font-family: 'Sora', sans-serif;
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
   body {
-    font-size: 16px;
+    font-size: 1.6rem;
     background: ${({ theme }) => theme.backgroundColor};
   }
 
