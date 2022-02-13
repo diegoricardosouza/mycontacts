@@ -70,7 +70,7 @@ export const ListContainer = styled.div`
       }
 
       img {
-        max-height: 1.55rem;
+        width: 1.5rem;
       }
     }
   }
