@@ -4,10 +4,31 @@ export const Container = styled.div`
   margin-top: 3.2rem;
 `;
 
+export const InputSearchContainer = styled.div`
+  width: 100%;
+
+  input {
+    width: 100%;
+    border: 0;
+    border-radius: 2.5rem;
+    height: 5rem;
+    background: #FFF;
+    box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.04);
+    outline: 0;
+    padding: 0 1.6rem;
+    font-size: 1.6rem;
+
+    &::placeholder {
+      color: ${({ theme }) => theme.placeholderInput};
+    }
+  }
+`;
+
 export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 3.2rem;
 
   strong {
     font-size: 2.4rem;
