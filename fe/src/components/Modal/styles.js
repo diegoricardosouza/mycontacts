@@ -25,6 +25,9 @@ export const Container = styled.div`
 export const Title = styled.h1`
   font-size: 2.2rem;
   font-weight: 700;
+  color: ${({ theme, danger }) => (
+    danger ? theme.colors.danger.main : theme.colors.gray[900]
+  )};
 `;
 
 export const Description = styled.p`
