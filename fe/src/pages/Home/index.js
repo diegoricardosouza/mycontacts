@@ -11,6 +11,7 @@ import edit from '../../assets/images/icons/edit.svg';
 import trash from '../../assets/images/icons/trash.svg';
 import sad from '../../assets/images/sad.svg';
 import emptyBox from '../../assets/images/empty-box.svg';
+import magnifierQuestion from '../../assets/images/magnifier-question.svg';
 
 import Loader from '../../components/Loader';
 import ContactsService from '../../services/ContactsService';
@@ -108,6 +109,16 @@ export default function Home() {
                 para cadastrar o seu primeiro!
               </p>
             </S.EmptyListContainer>
+          )}
+
+          {(contacts.length > 0 && filteredContacts.length < 1) && (
+            <S.SearchNotFoundContainer>
+              <img src={magnifierQuestion} alt="Magnifier Question" />
+
+              <span>
+                Nenhum resultado foi encontrado para <strong>”{searchTerm}”</strong>.
+              </span>
+            </S.SearchNotFoundContainer>
           )}
 
           {filteredContacts.length > 0 && (
