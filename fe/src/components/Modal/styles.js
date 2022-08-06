@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(0.5rem);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -30,8 +30,8 @@ export const Title = styled.h1`
   )};
 `;
 
-export const Description = styled.p`
-  margin-top: 0.8rem;
+export const Children = styled.div`
+  margin-top: 3.2rem;
 `;
 
 export const Footer = styled.footer`
@@ -44,7 +44,7 @@ export const Footer = styled.footer`
     border: none;
     font-size: 1.6rem;
     background: transparent;
-    padding: 0 0.8rem;
+    margin-right: 2.4rem;
     color: ${({ theme }) => theme.colors.gray[200]};
   }
 `;
