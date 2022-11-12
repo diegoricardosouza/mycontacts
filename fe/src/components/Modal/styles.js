@@ -1,4 +1,24 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1; }
+  to { opacity: 0; }
+`;
+
+const scaleIn = keyframes`
+  from { transform: translateY(500px) scale(0); }
+  to { transform: translateY(0) scale(1); }
+`;
+
+const scaleOut = keyframes`
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(500px) scale(0); }
+`;
 
 export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
@@ -11,6 +31,11 @@ export const Overlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: ${fadeIn} 0.3s;
+
+  ${({ isLeaving }) => isLeaving && css`
+    animation: ${fadeOut} 0.2s;
+  `}
 `;
 
 export const Container = styled.div`
@@ -20,6 +45,11 @@ export const Container = styled.div`
   box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.04);
   border-radius: 0.4rem;
   padding: 2.4rem;
+  animation: ${scaleIn} 0.3s;
+
+  ${({ isLeaving }) => isLeaving && css`
+    animation: ${scaleOut} 0.2s;
+  `}
 `;
 
 export const Title = styled.h1`
