@@ -1,5 +1,5 @@
 import {
-  useEffect, useState, useMemo, useCallback,
+  useEffect, useState, useMemo, useCallback, useDeferredValue,
 } from 'react';
 import ContactsService from '../../services/ContactsService';
 import toast from '../../utils/toast';
@@ -14,9 +14,11 @@ export default function useHome() {
   const [contactBeingDeleted, setContactBeingDeleted] = useState(null);
   const [isLoadingDelete, setIsLoadingDelete] = useState(false);
 
+  const deferredSearchTerm = useDeferredValue(searchTerm);
+
   const filteredContacts = useMemo(() => contacts.filter((contact) => (
-    contact.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )), [contacts, searchTerm]);
+    contact.name.toLowerCase().includes(deferredSearchTerm.toLowerCase())
+  )), [contacts, deferredSearchTerm]);
 
   const loadContacts = useCallback(async () => {
     try {
